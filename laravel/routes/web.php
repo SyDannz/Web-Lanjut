@@ -31,8 +31,8 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', [App\Http\Controllers\Admin\AdminController::class, 'dashboard'])->name('dashboard');
-    Route::get('/users', [App\Http\Controllers\Admin\AdminController::class, 'index'])->name('users');
-    Route::get('/users/{user}/edit', [App\Http\Controllers\Admin\AdminController::class, 'edit'])->name('users.edit');
-    Route::put('/users/{user}', [App\Http\Controllers\Admin\AdminController::class, 'update'])->name('users.update');
-    Route::delete('/users/{user}', [App\Http\Controllers\Admin\AdminController::class, 'destroy'])->name('users.destroy');
+    Route::get('/users', [App\Http\Controllers\Admin\AdminController::class, 'users'])->name('users');
+    Route::get('/users/{user}/edit', [App\Http\Controllers\Admin\AdminController::class, 'editUser'])->name('users.edit');
+    Route::put('/users/{user}', [App\Http\Controllers\Admin\AdminController::class, 'updateUser'])->name('users.update');
+    Route::delete('/users/{user}', [App\Http\Controllers\Admin\AdminController::class, 'deleteUser'])->name('users.destroy');
 });
